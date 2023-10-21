@@ -1,0 +1,21 @@
+body{
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+canvas{
+    width: 75%;
+    height: 85%;
+}
