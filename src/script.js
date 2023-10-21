@@ -19,7 +19,7 @@ var config = {
 var score = 0;
 var scoreMax = 0;
 var scoreText = 'Score: ' + score;
-var scoreMaxText = 'Max: ' + window.sessionStorage.getItem("Max");
+var scoreMaxText = 'Record: ' + window.sessionStorage.getItem("Max");
 var autor = 'By David Moreno Alonso'
 var music;
 var starAudio;
@@ -107,6 +107,11 @@ function create() {
     this.physics.add.collider(bombs, platforms);
     this.physics.add.collider(bombs, bombs);
     this.physics.add.collider(player, bombs, hitbomb, null, this)
+    var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+    var bomb = bombs.create(x, 16, 'bomb');
+    bomb.setBounce(1);
+    bomb.setCollideWorldBounds(true);
+    bomb.setVelocity(Phaser.Math.Between(-200, 200), 100)
 }
 
 function update() {
@@ -163,7 +168,7 @@ function hitbomb(player, bomb) {
 
 
 document.addEventListener("keydown", function () {
-    if (event.key=== "r") {
+    if (event.key === "r") {
         location.reload();
     }
 })
